@@ -1,24 +1,47 @@
-# README
+# InuLife
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+- うちの子の可愛さをもっと広めたい！
+- これってうちだけ？面白いクセや芸を共有したい！
+- 同じ犬種を飼っている犬友がほしい！
+- みんなはどうしてる？犬を飼ううえでの悩みをきいてほしい！
 
-Things you may want to cover:
+そんな愛犬家の希望を叶えたいという思いで作ったのが**InuLife**です。
 
-* Ruby version
+画像を共有するだけなら他のサイトでもできますが、当サイトは共有するだけでは終わらず、意見交換、質問、愛犬と暮らすうえでの悩み相談もでき、またグループに参加することで愛犬家の輪を広げることができます。
 
-* System dependencies
+### サイトテーマ
+犬好きによる犬好きのための、愛犬家交流サイト
 
-* Configuration
+### テーマを選んだ理由
+コロナ禍において、人と人との繋がりがとても大事なものだと再認識した一方、繋がる機会が減り様々な悩みを抱える人が増えてきました。わんちゃんを飼っている方も同様、今までは愛犬のお散歩で他のわんちゃんと交流したり、ドッグランなどに行き犬友を作ることができましたが、コロナの影響で関わる機会が減ってしまいました。
+そんな中だからこそ、愛犬家同士の関わりをもっと増やし、犬友の輪を広げたい！と思い、このテーマを選びました。
 
-* Database creation
+### ターゲットユーザ
+犬を飼っている方、犬が好きな方
 
-* Database initialization
+### 主な利用シーン
+自分の愛犬のかわいいシーンを共有したい時、または犬に関する質問・相談がある時、同じ犬種のお友達が欲しい時
 
-* How to run the test suite
+## 設計書
+### テーブル定義書
+後日記載
 
-* Services (job queues, cache servers, search engines, etc.)
+### ER図
+後日記載
 
-* Deployment instructions
+### [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1-BP_bhx4pWDynz2cZYHySqp8XKfDRnYlZZM_hk-3FWQ/edit?usp=sharing)
+リンクをご確認ください
 
-* ...
+## [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1VbUTUlbfrVqhxxa-Sv15PMGjaUVbmFE_giLVuLAQzvs/edit?usp=sharing)
+リンクをご確認ください
+
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
