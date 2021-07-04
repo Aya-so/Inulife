@@ -45,3 +45,4 @@
 - IDE：Cloud9
 
 ## 使用素材
+[hatchful](https://hatchful.shopify.com/ja/) オンラインロゴジェネレーター
