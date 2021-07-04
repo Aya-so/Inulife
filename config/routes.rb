@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   #管理者側deviseルーティング
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
+    sessions:      'admin/sessions',
+    passwords:     'admin/passwords',
+    registrations: 'admin/registrations'
   }
 
   #顧客側deviseルーティング
