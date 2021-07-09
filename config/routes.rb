@@ -9,11 +9,22 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
 
-  #顧客側deviseルーティング
-  devise_for :users, controllers: {
-    sessions: 'public/users/sessions',
-    paswords: 'public/users/paswords',
-    registrations: 'public/users/registrations',
-  }
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]       #ユーザー情報
+  end
+
+
+  #会員側ルーティング
+  scope module: 'public' do
+    get '/users/my_page' => 'users#show', as: 'my_page'               #ユーザーマイページ
+    resource :users, only: [:edit, :update]                           #ユーザー情報
+
+    #会員側deviseルーティング
+    devise_for :users, controllers: {
+      sessions: 'public/users/sessions',
+      paswords: 'public/users/paswords',
+      registrations: 'public/users/registrations',
+    }
+  end
 
 end

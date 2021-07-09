@@ -1,0 +1,53 @@
+<!--会員側マイページ編集-->
+
+<div class='container my-5'>
+
+  <%= form_with model: current_user, url: users_path, method: :patch, local: true do |f| %>
+  <div class='row'>
+    <div class='col-md-8 offset-md-2'>
+
+      <!--この辺にattachment_image_tag-->
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>ユーザー情報</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'>メールアドレス</th>
+          <td><%= f.text_field :email, autocomplete: 'sample@sample', class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>ニックネーム</th>
+          <td><%= f.text_field :name, autocomplete: 'ニックネーム', class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>ユーザーID</th>
+          <td><%= f.text_field :name_id, autocomplete: 'ID', disabled: true, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>Introduction</th>
+          <td><%= f.text_area :introduction, autocomplete: '自己紹介', class: 'form-control' %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class='text-right'>
+      <%= f.submit '更新', class: 'btn btn-outline-danger btn-lg' %>
+    </div>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>
