@@ -15,10 +15,32 @@
       <div class='collapse navbar-collapse gnav' id='navbarNavDropdown'>
         <ul class='navbar-nav ml-auto'>
 
+          <!--管理者ログイン時-->
+          <% if admin_signed_in? %>
+          <li class='welcome'>管理者ログイン中</li>
+
+          <li class='nav-item'><%= link_to 'ユーザー', admin_users_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'イベント', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
+
+          <!--会員ログイン時-->
+          <% elsif user_signed_in? %>
+          <li class='welcome'>Welcome, <%= current_user.name %> !!</li>
+
+          <li class='nav-item'><%= link_to 'マイページ', my_page_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'イベント', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
+
+          <!--会員未ログイン時-->
+          <% else %>
           <li class='nav-item'><%= link_to 'TOP', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to '投稿一覧', root_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to '新規登録', new_user_registration_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログイン', new_user_session_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to 'サブ', root_path, class:'nav-link' %></li>
+
+          <% end %>
 
         </ul>
       </div>
