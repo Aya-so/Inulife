@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
 
+  #管理者側ルーティング
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update]       #ユーザー情報
+    resources :users, only: [:index, :show, :edit, :update]           #ユーザー情報
+    resources :events                                                 #イベント
   end
 
 
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   scope module: 'public' do
     get '/users/my_page' => 'users#show', as: 'my_page'               #ユーザーマイページ
     resource :users, only: [:edit, :update]                           #ユーザー情報
+    resources :events, only: [:index, :show]                          #イベント
 
     #会員側deviseルーティング
     devise_for :users, controllers: {

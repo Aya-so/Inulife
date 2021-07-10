@@ -20,7 +20,7 @@
           <li class='welcome'>管理者ログイン中</li>
 
           <li class='nav-item'><%= link_to 'ユーザー', admin_users_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to 'イベント', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'イベント', admin_events_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
 
@@ -29,7 +29,7 @@
           <li class='welcome'>Welcome, <%= current_user.name %> !!</li>
 
           <li class='nav-item'><%= link_to 'マイページ', my_page_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to 'イベント', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'イベント', events_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
 

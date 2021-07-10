@@ -14,9 +14,11 @@
   <div class='row'>
     <div class='col-md-10 offset-md-1'>
 
-      <!--この辺にattachment_image_tag-->
+      <div class='text-center'>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200' %>
+      </div>
 
-    <table class="table">
+    <table class="table mt-3">
       <thead class="thead-light">
         <tr>
           <th>ユーザー情報</th>

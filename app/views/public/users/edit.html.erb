@@ -6,9 +6,12 @@
   <div class='row'>
     <div class='col-md-8 offset-md-2'>
 
-      <!--この辺にattachment_image_tag-->
+      <div class='text-center'>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200' %>
+        <%= f.attachment_field :profile_image %>
+      </div>
 
-    <table class="table">
+    <table class="table mt-3">
       <thead class="thead-light">
         <tr>
           <th>ユーザー情報</th>
