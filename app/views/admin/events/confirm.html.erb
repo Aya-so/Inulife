@@ -1,0 +1,64 @@
+<!--管理者側イベント新規追加確認-->
+
+<div class='container my-5'>
+
+  <%= form_with(model: @event, local: true) do |f| %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <table class="table mt-3">
+      <thead class="thead-light">
+        <tr>
+          <th>イベント新規作成確認</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'><%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200' %></th>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>イベントタイトル</th>
+          <td><%= @event.title %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>概要</th>
+          <td><%= @event.introduction %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催期間</th>
+          <td><%= @event.start %> ～ <%= @event.finish %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催ステータス</th>
+
+          <% if @event.event_status == 0 %>
+            <td>開催予定</td>
+          <% elsif @product.is_active == 1 %>
+            <td class="text-danger">開催中</td>
+          <% elsif @product.is_active == 2 %>
+            <td class="text-black-50">終了</td>
+          <% end %>
+
+        </tr>
+
+        <tr>
+          <td><%= f.submit '作成画面へ戻る', class: 'btn btn-outline-danger btn-lg' %></td>
+          <td class='text-right'><%= f.submit '新規作成', class: 'btn btn-outline-primary btn-lg' %></td>
+        </tr>
+
+      </tbody>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

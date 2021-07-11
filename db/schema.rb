@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_07_10_173144) do
     t.text "introduction"
     t.string "image_id"
     t.integer "event_status", default: 0
+    t.date "start"
+    t.date "finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
