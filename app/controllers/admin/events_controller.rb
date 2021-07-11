@@ -19,7 +19,8 @@ class Admin::EventsController < ApplicationController
 
   #新規投稿確認ページ
   def confirm
-    @event = Event.new
+    @event = Event.new(event_params)
+    render :new if @event.invalid?
   end
 
   def create
@@ -56,7 +57,7 @@ class Admin::EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:product).permit(:title, :introduction, :image, :event_status)
+    params.require(:event).permit(:title, :introduction, :image, :event_status)
   end
 
 end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #管理者側ルーティング
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]           #ユーザー情報
+    post '/events/confirm' => 'events#confirm'                        #イベント確認
     resources :events                                                 #イベント
   end
 

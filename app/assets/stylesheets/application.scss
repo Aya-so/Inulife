@@ -71,6 +71,29 @@ span {
   color: red;
 }
 
+//topページ
+.main-visual {
+  width: 100%;
+  height: 800px;
+  background-image: image-url('top.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+
+.main-visual-content {
+  width: 40%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 105px;
+}
+
+.main-visual-text {
+  color: #fff;
+  text-align: center;
+}
+
+
 //新規登録ボタン
 .newbtn {
   display       : inline-block;
