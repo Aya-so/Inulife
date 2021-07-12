@@ -1,6 +1,8 @@
 class Public::EventsController < ApplicationController
   #会員側イベントページ
 
+  before_action :authenticate_user!
+
   def index
     @events = Event.all
     @events = Event.page(params[:page]).per(10)

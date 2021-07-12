@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]           #ユーザー情報
     post '/events/confirm' => 'events#confirm'                        #イベント確認
     resources :events                                                 #イベント
+    resources :posts, only: [:index, :show, :destroy]                 #投稿
   end
 
 
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     get '/users/my_page' => 'users#show', as: 'my_page'               #ユーザーマイページ
     resource :users, only: [:edit, :update]                           #ユーザー情報
     resources :events, only: [:index, :show]                          #イベント
+    resources :posts, only: [:create, :show, :destroy]                #投稿
 
     #会員側deviseルーティング
     devise_for :users, controllers: {

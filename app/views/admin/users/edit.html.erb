@@ -15,11 +15,11 @@
     <div class='col-md-10 offset-md-1'>
 
       <div class='text-center'>
-        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200' %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %>
       </div>
 
-    <table class="table mt-3">
-      <thead class="thead-light">
+    <table class='table mt-3'>
+      <thead class='thead-light'>
         <tr>
           <th>ユーザー情報</th>
           <th></th>
@@ -62,7 +62,7 @@
       </tbody>
     </table>
 
-    <div class="text-right">
+    <div class='text-right'>
       <%= f.submit '変更を保存', class: 'btn btn-outline-primary' %>
     </div>
 

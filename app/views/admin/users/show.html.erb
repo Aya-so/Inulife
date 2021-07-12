@@ -14,11 +14,11 @@
     <div class='col-md-10 offset-md-1'>
 
       <div class='text-center'>
-        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200' %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %>
       </div>
 
-    <table class="table mt-3">
-      <thead class="thead-light">
+    <table class='table mt-3'>
+      <thead class='thead-light'>
         <tr>
           <th>ユーザー情報</th>
           <th></th>
@@ -50,7 +50,8 @@
       </tbody>
     </table>
 
-    <div class="text-right">
+    <div class='text-right'>
+      <%= link_to '一覧に戻る', admin_users_path, class: 'btn btn-outline-secondary btn-sm' %>
       <%= link_to 'ユーザー情報を編集', edit_admin_user_path, class: 'btn btn-outline-primary btn-sm' %>
     </div>
 
