@@ -25,12 +25,9 @@ class Admin::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      redirect_to admin_event_path(@event)
-      flash[:notice] = '新しいイベントを作成しました。'
-    else
-      render :new
-    end
+    render :new and return if params[:back] || !@event.save
+    redirect_to admin_event_path(@event.id)
+    flash[:notice] = 'イベントを作成しました。'
   end
 
   def edit
@@ -57,7 +54,7 @@ class Admin::EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :introduction, :image, :event_status)
+    params.require(:event).permit(:title, :introduction, :start, :finish, :place, :image, :event_status)
   end
 
 end
