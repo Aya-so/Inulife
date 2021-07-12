@@ -5,7 +5,6 @@ class Public::EventsController < ApplicationController
 
   def index
     @events = Event.all
-    @events = Event.page(params[:page]).per(10)
   end
 
   def show
@@ -14,7 +13,7 @@ class Public::EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:product).permit(:title, :introduction, :image, :event_status)
+    params.require(:event).permit(:title, :introduction, :start, :finish, :place, :image, :event_status)
   end
 
 end

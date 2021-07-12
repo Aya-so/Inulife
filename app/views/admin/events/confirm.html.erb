@@ -2,7 +2,7 @@
 
 <div class='container my-5'>
 
-  <%= form_with(model: @event, local: true) do |f| %>
+  <%= form_with(model: @event, local: true, url: admin_events_path, method: :post) do |f| %>
   <div class='row'>
     <div class='col-md-10 offset-md-1'>
 
@@ -18,8 +18,8 @@
       <tbody>
 
         <tr>
-          <th class='text-center'><%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %></th>
-          <td><%= f.attachment_field :image %></td>
+          <th></th>
+          <td><%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'300x300' %></td>
         </tr>
 
         <tr>
@@ -47,16 +47,21 @@
 
           <% if @event.event_status == 0 %>
             <td>開催予定</td>
-          <% elsif @product.is_active == 1 %>
+          <% elsif @event.event_status == 1 %>
             <td class='text-danger'>開催中</td>
-          <% elsif @product.is_active == 2 %>
+          <% elsif @event.event_status == 2 %>
             <td class='text-black-50'>終了</td>
           <% end %>
-
         </tr>
 
         <tr>
-          <td><%= f.submit '作成画面へ戻る', class: 'btn btn-outline-danger btn-lg' %></td>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :introduction %>
+          <%= f.hidden_field :place %>
+          <%= f.hidden_field :start %>
+          <%= f.hidden_field :finish %>
+          <%= f.hidden_field :event_status %>
+          <td><%= f.submit '作成画面へ戻る', name: :back, class: 'btn btn-outline-danger btn-lg' %></td>
           <td class='text-right'><%= f.submit '新規作成', class: 'btn btn-outline-primary btn-lg' %></td>
         </tr>
 
