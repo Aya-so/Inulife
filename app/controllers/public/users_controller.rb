@@ -1,8 +1,12 @@
 class Public::UsersController < ApplicationController
-  #顧客側会員ページ
+  #会員側会員ページ
+
+  before_action :authenticate_user!
 
   def show
     @user = current_user
+    @post = Post.new
+    @posts = Post.all
   end
 
   def edit

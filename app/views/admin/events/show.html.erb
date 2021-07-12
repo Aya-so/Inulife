@@ -6,10 +6,10 @@
     <div class='col-md-10 offset-md-1'>
 
       <div class='text-center'>
-        <%= attachment_image_tag @event, :image, :fill, 200, 300, fallback: "no_image.jpg", size:'200x200' %>
+        <%= attachment_image_tag @event, :image, :fill, 200, 300, fallback: 'no_image.jpg', size:'200x200' %>
       </div>
 
-    <table class="table mt-3">
+    <table class='table mt-3'>
       <tbody>
 
         <tr>
@@ -20,6 +20,11 @@
         <tr>
           <th class='text-center'>概要</th>
           <td><%= @event.introduction %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催地</th>
+          <td><%= @event.place %></td>
         </tr>
 
         <tr>
@@ -35,7 +40,7 @@
       </tbody>
     </table>
 
-    <div class="text-right">
+    <div class='text-right'>
       <%= link_to '編集', edit_admin_event_path, class: 'btn btn-outline-primary btn-sm' %>
     </div>
 
