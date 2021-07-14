@@ -49,6 +49,17 @@
 
   <!--投稿フォーム-->
   <div class='row'>
+
+    <!--エラーメッセージ-->
+    <% if @user.errors.any? %>
+    <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
     <%= render 'public/posts/new', post: Post.new %>
   </div>
 

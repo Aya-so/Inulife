@@ -1,11 +1,11 @@
 <!--会員側投稿一覧-->
 
 <% posts.each do |post| %>
-<div class='col-md-3 offset-md-1'>
+<div class='col-md-3 offset-md-1 m-3'>
 
   <div class='card shadow'>
     <%= link_to post_path(post), class: 'no-underline', 'data-turbolinks': false do %>
-      <%= attachment_image_tag(post, :image, width: '100%', height: '100%', fallback: 'no_image.jpg') %>
+      <p class='text-center'><%= attachment_image_tag(post, :image, :fill, 250, 150, size:'250x150', fallback: 'no_image.jpg') %></p>
 
       <div class='card-body'>
         <p class='card-title text-right'><%= post.created_at.strftime('%Y/%m/%d') %></p>

@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def edit

@@ -1,7 +1,11 @@
 class Public::PostsController < ApplicationController
   #会員側投稿ページ
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
+
+  def index
+    @posts = Post.all.order(updated_at: :desc)
+  end
 
   def create
     @post = Post.new(post_params)
@@ -10,7 +14,7 @@ class Public::PostsController < ApplicationController
       redirect_to my_page_path
       flash[:notice] = '投稿に成功しました。'
     else
-      render :new
+      render ('public/users/show')
     end
   end
 

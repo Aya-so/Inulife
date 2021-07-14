@@ -2,9 +2,9 @@
 
 <div class='container my-5'>
   <div class='row'>
-    <div class='col-md-5'>
+    <div class='col-md-8 offset-md-1'>
 
-<%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %>
+<%= attachment_image_tag @post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %>
 <%= link_to my_page_path class: 'no-underline', 'data-turbolinks': false do %>
   @<%= @post.user.name_id %>
 <% end %>

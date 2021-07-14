@@ -1,0 +1,12 @@
+<!--会員側グループ一覧-->
+
+<h4>グループ一覧</h4>
+
+<% @groups.each do |group| %>
+  <%= group.name %>
+  <%= group.introduction %>
+  <%= link_to '詳細', post_path %>
+<% end %>
+
+
+<%= link_to 'グループ新規作成', new_group_path, class: 'btn btn-outline-danger btn-sm' %>
