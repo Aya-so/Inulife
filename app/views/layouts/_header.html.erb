@@ -4,7 +4,12 @@
     <div class='container'>
 
       <!--ロゴ-->
+      <!--会員ログイン時-->
+      <% if user_signed_in? %>
+      <a href='/users/my_page'><%= image_tag 'logo_edit.png', width: '50%', height: '50%' %></a>
+      <% else %>
       <a href='/'><%= image_tag 'logo_edit.png', width: '50%', height: '50%' %></a>
+      <% end %>
 
       <!--ハンバーガーアイコン-->
       <button class='navbar-toggler navbar-dark bg-dark' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
@@ -22,26 +27,27 @@
           <li class='nav-item'><%= link_to '投稿', admin_posts_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ユーザー', admin_users_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'イベント', admin_events_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'グループ', admin_groups_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
 
           <!--会員ログイン時-->
           <% elsif user_signed_in? %>
           <li class='welcome'>
+            Welcome,
             <%= link_to my_page_path, class:'nav-link' do %>
-              Welcome, <%= current_user.name %> !!
+              @<%= current_user.name_id %> !!
             <% end %>
           </li>
 
-          <li class='nav-item'><%= link_to '投稿', my_page_path, class:'nav-link' %></li><!--投稿のルートに後で変更-->
+          <li class='nav-item'><%= link_to '投稿', posts_path, class:'nav-link' %></li><!--投稿のルートに後で変更-->
           <li class='nav-item'><%= link_to 'イベント', events_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to 'グループ', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'グループ', groups_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
 
           <!--会員未ログイン時-->
           <% else %>
           <li class='nav-item'><%= link_to 'TOP', root_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to '投稿一覧', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to '投稿一覧', posts_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to '新規登録', new_user_registration_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログイン', new_user_session_path, class:'nav-link' %></li>
 

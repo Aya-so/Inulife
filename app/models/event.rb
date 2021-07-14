@@ -2,7 +2,7 @@ class Event < ApplicationRecord
 
   attachment :image
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :introduction, presence: true
 
   enum order_status: {
