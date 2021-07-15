@@ -19,7 +19,11 @@
 
         <tr>
           <th></th>
-          <td><%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'300x300' %></td>
+          <td>
+            <%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'300x300' %><br>
+            <%= f.attachment_field :image, disabled: true %>
+          </td>
+
         </tr>
 
         <tr>

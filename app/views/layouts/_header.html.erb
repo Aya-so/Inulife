@@ -4,12 +4,7 @@
     <div class='container'>
 
       <!--ロゴ-->
-      <!--会員ログイン時-->
-      <% if user_signed_in? %>
-      <a href='/users/my_page'><%= image_tag 'logo_edit.png', width: '50%', height: '50%' %></a>
-      <% else %>
       <a href='/'><%= image_tag 'logo_edit.png', width: '50%', height: '50%' %></a>
-      <% end %>
 
       <!--ハンバーガーアイコン-->
       <button class='navbar-toggler navbar-dark bg-dark' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
@@ -34,7 +29,7 @@
           <% elsif user_signed_in? %>
           <li class='welcome'>
             Welcome,
-            <%= link_to my_page_path, class:'nav-link' do %>
+            <%= link_to root_path, class:'nav-link' do %>
               @<%= current_user.name_id %> !!
             <% end %>
           </li>

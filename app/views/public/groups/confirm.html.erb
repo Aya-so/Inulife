@@ -2,7 +2,7 @@
 
 <div class='container my-5'>
 
-  <%= form_with(model: @group, local: true, url: posts_path, method: :post) do |f| %>
+  <%= form_with(model: @group, local: true, method: :post) do |f| %>
   <div class='row'>
     <div class='col-md-10 offset-md-1'>
 
@@ -21,12 +21,12 @@
 
         <tr>
           <th class='text-center'>グループ名</th>
-          <td><%= @post.name %></td>
+          <td><%= @group.name %></td>
         </tr>
 
         <tr>
           <th class='text-center'>グループ概要</th>
-          <td><%= @post.introduciton %></td>
+          <td><%= @group.introduction %></td>
         </tr>
 
         <tr>

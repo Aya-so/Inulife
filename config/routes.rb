@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   #会員側ルーティング
   scope module: 'public' do
-    get '/users/my_page' => 'users#show', as: 'my_page'                 #ユーザーマイページ
+    get '/users/:name_id' => 'users#show', as: 'users_show'                  #ユーザーページ
     resource :users, only: [:edit, :update]                             #ユーザー情報
     resources :events, only: [:index, :show]                            #イベント
     resources :posts, only: [:index, :create, :show, :destroy]          #投稿
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       collection do
         post :confirm                                                   #グループ作成確認
       end
+      resources :group_users, only: [:create, :destroy,]                #グループユーザー
     end
 
     #会員側deviseルーティング

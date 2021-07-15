@@ -30,11 +30,18 @@ class Public::GroupsController < ApplicationController
     if !@group.users.include?(current_user)
       @group.users << current_user
     end
+
+    @group_post = GroupPost.where(group_id: @group.id).all
+
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, :introduciton, user_ids: [] )
+    params.require(:group).permit(:name, :introduction, user_ids: [] )
+  end
+
+  def grouppost_params
+    params.require(:group_posts).permit(:content)
   end
 
 end

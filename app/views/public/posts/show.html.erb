@@ -5,7 +5,7 @@
     <div class='col-md-8 offset-md-1'>
 
 <%= attachment_image_tag @post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %>
-<%= link_to my_page_path class: 'no-underline', 'data-turbolinks': false do %>
+<%= link_to users_show_path(@user.name_id), class: 'no-underline', 'data-turbolinks': false do %>
   @<%= @post.user.name_id %>
 <% end %>
 
