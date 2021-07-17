@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       when Admin                    #管理者
         admin_users_path
       when User                     #会員
-        root_path
+        users_show_path(@user)
     end
   end
 

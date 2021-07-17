@@ -29,7 +29,7 @@
           <% elsif user_signed_in? %>
           <li class='welcome'>
             Welcome,
-            <%= link_to root_path, class:'nav-link' do %>
+            <%= link_to users_show_path(current_user.name_id), class:'nav-link' do %>
               @<%= current_user.name_id %> !!
             <% end %>
           </li>
