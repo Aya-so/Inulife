@@ -34,7 +34,6 @@ Rails.application.routes.draw do
     get '/users/:name_id' => 'users#show', as: 'users_show'             #ユーザーページ
     get '/users/edit/:name_id' => 'users#edit', as: 'edit_user'         #ユーザー編集ページ
     patch '/users/update/:name_id' => 'users#update', as: 'update_user' #ユーザー編集ページ
-    resource :users, only: [:update]                                    #ユーザー情報
 
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'      #お問い合わせ確認
     post 'contacts/back', to: 'contacts#back', as: 'back'               #お問い合わせ入力誤り
@@ -42,8 +41,10 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create]                          #お問い合わせ
 
     resources :events, only: [:index, :show]                            #イベント
+    
     resources :posts, only: [:index, :create, :show, :destroy] do       #投稿
       resources :post_comments, only: [:create, :destroy]               #投稿宛コメント
+      resource :favorites, only: [:create, :destroy]                    #いいね
     end
 
     resources :groups do                                                #グループ

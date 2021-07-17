@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_many :group_users
   has_many :groups, through: :group_users
@@ -28,7 +29,6 @@ class User < ApplicationRecord
   validate :name_id_valid?
 
   private
-
   def name_id_valid?
     errors.add(:name_id) if name_id.include?('sign_in') || name_id.include?('sign_up')
   end
