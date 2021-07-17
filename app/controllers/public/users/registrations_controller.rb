@@ -62,7 +62,7 @@ class Public::Users::RegistrationsController < Devise::RegistrationsController
 
   #新規登録後遷移先
   def after_sign_up_path_for(resource)
-    my_page_path(resource)
+   users_show_path(@user)
   end
 
 end

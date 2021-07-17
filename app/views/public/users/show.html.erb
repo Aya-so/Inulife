@@ -40,16 +40,19 @@
         </tbody>
       </table>
 
+      <% unless current_user != @user %>
       <div class='text-right'>
-        <%= link_to 'ユーザー情報を編集', edit_users_path, class: 'btn btn-outline-primary btn-sm' %>
+        <%= link_to 'ユーザー情報を編集', edit_user_path(@user), class: 'btn btn-outline-primary btn-sm' %>
       </div>
+      <% end %>
 
     </div>
   </div>
 
   <!--投稿フォーム-->
-  <div class='row'>
 
+  <div class='row'>
+  <% unless current_user != @user %>
     <!--エラーメッセージ-->
     <% if @user.errors.any? %>
     <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
@@ -62,6 +65,7 @@
 
     <%= render 'public/posts/new', post: Post.new %>
   </div>
+  <% end %>
 
   <!--投稿一覧-->
   <div class='row'>

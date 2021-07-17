@@ -24,10 +24,28 @@ Rails.application.routes.draw do
 
   #会員側ルーティング
   scope module: 'public' do
-    get '/users/:name_id' => 'users#show', as: 'users_show'                  #ユーザーページ
-    resource :users, only: [:edit, :update]                             #ユーザー情報
+    #会員側deviseルーティング
+    devise_for :users, controllers: {
+      sessions: 'public/users/sessions',
+      paswords: 'public/users/paswords',
+      registrations: 'public/users/registrations',
+    }
+
+    get '/users/:name_id' => 'users#show', as: 'users_show'             #ユーザーページ
+    get '/users/edit/:name_id' => 'users#edit', as: 'edit_user'         #ユーザー編集ページ
+    patch '/users/update/:name_id' => 'users#update', as: 'update_user' #ユーザー編集ページ
+    resource :users, only: [:update]                                    #ユーザー情報
+
+    post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'      #お問い合わせ確認
+    post 'contacts/back', to: 'contacts#back', as: 'back'               #お問い合わせ入力誤り
+    get 'done', to: 'contacts#done', as: 'done'                         #お問い合わせ完了
+    resources :contacts, only: [:new, :create]                          #お問い合わせ
+
     resources :events, only: [:index, :show]                            #イベント
-    resources :posts, only: [:index, :create, :show, :destroy]          #投稿
+    resources :posts, only: [:index, :create, :show, :destroy] do       #投稿
+      resources :post_comments, only: [:create, :destroy]               #投稿宛コメント
+    end
+
     resources :groups do                                                #グループ
       collection do
         post :confirm                                                   #グループ作成確認
@@ -35,12 +53,6 @@ Rails.application.routes.draw do
       resources :group_users, only: [:create, :destroy,]                #グループユーザー
     end
 
-    #会員側deviseルーティング
-    devise_for :users, controllers: {
-      sessions: 'public/users/sessions',
-      paswords: 'public/users/paswords',
-      registrations: 'public/users/registrations',
-    }
   end
 
 end

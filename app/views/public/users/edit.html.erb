@@ -2,7 +2,7 @@
 
 <div class='container my-5'>
 
-  <%= form_with model: current_user, url: users_path, method: :patch, local: true do |f| %>
+  <%= form_with model: current_user, url: update_user_path, method: :patch, local: true do |f| %>
   <div class='row'>
     <div class='col-md-8 offset-md-2'>
 
@@ -14,7 +14,7 @@
     <table class='table mt-3'>
       <thead class='thead-light'>
         <tr>
-          <th>ユーザー情報</th>
+          <th>@<%= @user.name_id %>のユーザー情報編集</th>
           <th></th>
           <th></th>
         </tr>
@@ -30,11 +30,6 @@
         <tr>
           <th class='text-center'>ニックネーム</th>
           <td><%= f.text_field :name, autocomplete: 'ニックネーム', class: 'form-control' %></td>
-        </tr>
-
-        <tr>
-          <th class='text-center'>ユーザーID</th>
-          <td><%= f.text_field :name_id, autocomplete: 'ID', disabled: true, class: 'form-control' %></td>
         </tr>
 
         <tr>
