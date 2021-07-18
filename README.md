@@ -43,5 +43,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-[hatchful](https://hatchful.shopify.com/ja/) オンラインロゴジェネレーター
-[photoAC](https://www.photo-ac.com/) 写真のフリー素材サイト
+- [hatchful](https://hatchful.shopify.com/ja/) オンラインロゴジェネレーター
+- [photoAC](https://www.photo-ac.com/) 写真のフリー素材サイト
