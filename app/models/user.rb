@@ -6,10 +6,7 @@ class User < ApplicationRecord
 
   validates :name, uniqueness: true, length: { minimum: 2, maximum: 15 }
   validates :introduction, length: { maximum: 50 }
-  validates :name_id,
-            uniqueness: true,
-            format: { with: /\A[a-zA-Z\d]+\z/ },
-            length: { minimum: 2, maximum: 15 }
+  validates :name_id, uniqueness: true, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
 
   attachment :profile_image
 
@@ -20,6 +17,20 @@ class User < ApplicationRecord
   has_many :group_users
   has_many :groups, through: :group_users
 
+  # 検索
+  def User.search(search, model, how)
+    if model == "user"
+      if how == "partical"
+        User.where("name_id LIKE ?", "%#{search}%")
+      elsif how == "forward"
+        User.where("name_id LIKE ?", "#{search}%")
+      elsif how == "backward"
+        User.where("name_id LIKE?", "%#{search}")
+      elsif how == "match"
+        User.where("name_id LIKE?", "#{search}")
+      end
+    end
+  end
 
   def to_param
     return self.name_id
