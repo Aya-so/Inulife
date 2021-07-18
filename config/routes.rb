@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
+  # letter_opener_webのルート
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
+
   root to: 'public/homes#top'
+  resources :maps, only: [:index]                                       #地図
 
   #管理者側deviseルーティング
   devise_for :admins, controllers: {
@@ -41,7 +48,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create]                          #お問い合わせ
 
     resources :events, only: [:index, :show]                            #イベント
-    
+
     resources :posts, only: [:index, :create, :show, :destroy] do       #投稿
       resources :post_comments, only: [:create, :destroy]               #投稿宛コメント
       resource :favorites, only: [:create, :destroy]                    #いいね

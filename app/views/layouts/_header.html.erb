@@ -34,17 +34,19 @@
             <% end %>
           </li>
 
-          <li class='nav-item'><%= link_to '投稿', posts_path, class:'nav-link' %></li><!--投稿のルートに後で変更-->
+          <li class='nav-item'><%= link_to '投稿', posts_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'イベント', events_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'グループ', groups_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'お問い合わせ', new_contact_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link', 'data-confirm' => '本当にログアウトしますか？' %></li>
 
           <!--会員未ログイン時-->
           <% else %>
-          <li class='nav-item'><%= link_to 'TOP', root_path, class:'nav-link' %></li>
-          <li class='nav-item'><%= link_to '投稿一覧', posts_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'トップ', root_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to '全ての投稿', posts_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to '新規登録', new_user_registration_path, class:'nav-link' %></li>
           <li class='nav-item'><%= link_to 'ログイン', new_user_session_path, class:'nav-link' %></li>
+          <li class='nav-item'><%= link_to 'お問い合わせ', new_contact_path, class:'nav-link' %></li>
 
           <% end %>
 
