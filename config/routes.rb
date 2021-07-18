@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       registrations: 'public/users/registrations',
     }
 
+    get "search" => "searches#search"                                   #検索
+
     get '/users/:name_id' => 'users#show', as: 'users_show'             #ユーザーページ
     get '/users/edit/:name_id' => 'users#edit', as: 'edit_user'         #ユーザー編集ページ
     patch '/users/update/:name_id' => 'users#update', as: 'update_user' #ユーザー編集ページ

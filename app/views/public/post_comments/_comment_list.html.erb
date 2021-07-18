@@ -18,8 +18,8 @@
       <td><%= attachment_image_tag post_comment.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %></td>
 
       <td>
-      <%= link_to users_show_path(current_user.name_id) do %>
-      <%= post_comment.user.name %>
+      <%= link_to users_show_path(post_comment.user.name_id) do %>
+        <%= post_comment.user.name %>
       <% end %>
       </td>
 

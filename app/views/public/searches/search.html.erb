@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+
+<!--ユーザー検索-->
+<% if @model == "user" %>
+  <h2><%= @value %> の検索結果</h2>
+  <thead>
+    <tr>
+      <th></th>
+      <th>名前</th>
+      <th>ユーザーID</th>
+      <th>投稿数</th>
+      <th>いいね数</th>
+    </tr>
+  </thead>
+
+  <% if @users.present? %>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+       <td><%= attachment_image_tag user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'40x40' %></td>
+       <td><%= user.name %></td>
+       <td>
+         <%= link_to users_show_path(user.name_id) do %>
+           @<%= user.name_id %>
+          <% end %>
+        </td>
+        <td><%= user.posts.count %></td>
+        <td><%= user.favorites.count %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <tr>
+        <td>該当のユーザーはいません</td>
+      </tr>
+    </tbody>
+  <% end %>
+
+<!--ブック検索-->
+<% elsif @model == "event" %>
+  <h2><%= @value %> の検索結果</h2>
+  <thead>
+    <tr>
+      <th></th>
+      <th>イベント</th>
+      <th>開催期間</th>
+      <th>開催ステータス</th>
+    </tr>
+  </thead>
+
+  <% if @events.present? %>
+    <tbody>
+      <% @events.each do |event| %>
+      <tr>
+        <td><%= attachment_image_tag event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'40x40' %></td>
+        <td>
+          <%= link_to event_path(event.id) do %>
+            <%= event.title %>
+          <% end %>
+          </td>
+        <td><%= event.start %> ～ <%= event.finish %></td>
+
+        <% if event.event_status == 0 %>
+          <td>開催予定</td>
+        <% elsif event.event_status == 1 %>
+          <td class='text-danger'>開催中</td>
+        <% elsif event.event_status == 2 %>
+          <td class='text-black-50'>終了</td>
+        <% end %>
+
+      </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <tr>
+        <td>該当のイベントはありません</td>
+      </tr>
+    </tbody>
+  <% end %>
+<% end %>
+
+    </table>
+  </div>
+</div>
