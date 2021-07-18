@@ -1,4 +1,5 @@
 # InuLife
+![Inulife_top](https://user-images.githubusercontent.com/82296846/126059929-4e0682cc-b129-4d4a-bd77-0658fe6c3104.jpg)
 
 ## サイト概要
 - うちの子の可愛さをもっと広めたい！
@@ -24,11 +25,8 @@
 自分の愛犬のかわいいシーンを共有したい時、または犬に関する質問・相談がある時、同じ犬種のお友達が欲しい時
 
 ## 設計書
-### テーブル定義書
-後日記載
-
-### ER図
-後日記載
+### [テーブル定義書](https://docs.google.com/spreadsheets/d/1IxKtZGM7YGejlv95WQODtVOyXXRpA2A-GwlsmsVpuv8/edit?usp=sharing)
+リンクをご確認ください
 
 ### [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1-BP_bhx4pWDynz2cZYHySqp8XKfDRnYlZZM_hk-3FWQ/edit?usp=sharing)
 リンクをご確認ください
