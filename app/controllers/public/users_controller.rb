@@ -5,8 +5,12 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find_by(name_id: params[:name_id])
+
+    # 新規投稿
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc)
+
+    #ユーザーのポストのみ表示
+    @posts = Post.where(user_id: @user.id).all.order(created_at: :desc)
   end
 
   def edit
