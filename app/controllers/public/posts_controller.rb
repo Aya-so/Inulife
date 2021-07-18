@@ -1,7 +1,8 @@
 class Public::PostsController < ApplicationController
   #会員側投稿ページ
 
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, only: [:show]
+
 
   def index
     @posts = Post.all.order(updated_at: :desc)

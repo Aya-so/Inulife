@@ -13,8 +13,8 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @post_comment = PostComment.find_by(id: params[:id], postid: params[:post_id])
+    @post_comment = PostComment.find(params[:id])
+    @post = @post_comment.post
     @post_comment.destroy
       flash[:notice]="コメントを削除しました。"
   end

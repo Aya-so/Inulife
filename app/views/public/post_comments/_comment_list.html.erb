@@ -26,7 +26,7 @@
       <td><%= post_comment.comment %></td>
 
       <% if post_comment.user_id == current_user.id %>
-      <td><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class:"btn btn-sm btn-danger" %></td>
+      <td><%= link_to "削除", post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete, remote: true, class:"btn btn-sm btn-danger" %></td>
       <% else %>
       <td></td>
       <% end %>
