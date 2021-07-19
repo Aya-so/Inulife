@@ -1,0 +1,17 @@
+ inherit_from:
+  - .rubocop_airbnb.yml
+
+ Rails:
+   Enabled: true
+
+LineLength:
+  Max: 130
+
+ AllCops:
+   Exclude:
+      - 'db/**/*'
+      - 'bin/*'
+      - 'config/*'
+      - 'lib/*'
+      - 'vendor/**/*'
+        'path/ruby'

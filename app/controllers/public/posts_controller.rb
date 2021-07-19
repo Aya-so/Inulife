@@ -5,7 +5,7 @@ class Public::PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
   def create
@@ -30,6 +30,11 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to my_page_path
     flash[:notice] = '投稿を削除しました。'
+  end
+
+  # 投稿をランキング表示
+  def rank
+    @all_ranks = Post.includes(:user).find(Favorite.group(:post_id).order('count(post_id) desc').pluck(:post_id))
   end
 
   private

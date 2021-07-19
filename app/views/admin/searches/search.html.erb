@@ -1,7 +1,7 @@
 <!--会員側検索-->
 
 <!--検索フォーム-->
-<%= render "public/searches/search_form" %>
+<%= render "admin/searches/search_form" %>
 
 <div class="container my-5">
   <div class="row">
@@ -17,6 +17,7 @@
             <th>ユーザーID</th>
             <th>投稿数</th>
             <th>いいね数</th>
+            <th>ステータス</th>
           </tr>
         </thead>
 
@@ -27,12 +28,20 @@
              <td><%= attachment_image_tag user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'40x40' %></td>
              <td><%= user.name %></td>
              <td>
-               <%= link_to users_show_path(user.name_id) do %>
+               <%= link_to admin_user_path(user.id) do %>
                  @<%= user.name_id %>
                 <% end %>
               </td>
               <td><%= user.posts.count %></td>
               <td><%= user.favorites.count %></td>
+
+              <!--ステータス-->
+              <% if user.is_active?%>
+                <td class='text-success text-center'>有効</td>
+          　　<% else %>
+          　　    <td class='text-secondary text-center'>退会</td>
+          　　<% end %>
+
             </tr>
             <% end %>
           </tbody>
@@ -62,7 +71,7 @@
             <tr>
               <td><%= attachment_image_tag event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'40x40' %></td>
               <td>
-                <%= link_to event_path(event.id) do %>
+                <%= link_to admin_event_path(event.id) do %>
                   <%= event.title %>
                 <% end %>
                 </td>
@@ -104,7 +113,7 @@
             <% @groups.each do |group| %>
             <tr>
               <td>
-                <%= link_to group_path(group.id) do%>
+                <%= link_to admin_group_path(group.id) do%>
                   <%= group.name %>
                 <% end %>
               </td>

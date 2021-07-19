@@ -1,9 +1,8 @@
-<!--会員側投稿一覧-->
-
-<% posts.each do |post| %>
 <div class='col-md-3 offset-md-1 m-3'>
 
+  <%= @all_ranks.each do |post| %>
   <div class='card shadow'>
+
     <%= link_to post_path(post), class: 'no-underline', 'data-turbolinks': false do %>
       <p class='text-center'><%= attachment_image_tag(post, :image, :fill, 250, 150, size:'250x150', fallback: 'no_image.jpg') %></p>
 
@@ -15,7 +14,8 @@
       </div>
 
     <% end %>
+
   </div>
+  <% end %>
 
 </div>
-<% end %>

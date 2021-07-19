@@ -26,13 +26,8 @@ class Public::GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find_by(id: params[:id])
-    if !@group.users.include?(current_user)
-      @group.users << current_user
-    end
-
+    @group = Group.find(params[:id])
     @group_post = GroupPost.where(group_id: @group.id).all
-
   end
 
   private

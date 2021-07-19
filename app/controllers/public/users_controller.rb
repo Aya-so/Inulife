@@ -10,7 +10,7 @@ class Public::UsersController < ApplicationController
     @post = Post.new
 
     #ユーザーのポストのみ表示
-    @posts = Post.where(user_id: @user.id).all.order(created_at: :desc)
+    @posts = Post.where(user_id: @user.id).all.includes(:user).order(created_at: :desc)
   end
 
   def edit
