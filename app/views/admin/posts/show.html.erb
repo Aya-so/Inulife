@@ -12,6 +12,9 @@
 <%= attachment_image_tag(@post, :image, width: '100%', height: '100%', fallback: 'no_image.jpg') %>
 <%= @post.caption %>
 
+<i class="fas fa-heart"></i>
+<%= @post.favorites.count %>
+
 <%= link_to "削除", post_path(@post), method: :delete, class:'btn btn-danger', 'data-confirm' => '本当に削除しますか？' %>
 
 <%= render "admin/posts/comment_list", post: @post %>
