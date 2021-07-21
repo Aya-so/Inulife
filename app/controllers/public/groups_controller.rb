@@ -28,7 +28,11 @@ class Public::GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @group_post = GroupPost.where(group_id: @group.id).all
-  end
+
+    # コメントの新規投稿
+    @group_post = GroupPost.new
+
+    end
 
   private
   def group_params

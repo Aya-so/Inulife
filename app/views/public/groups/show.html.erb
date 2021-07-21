@@ -13,11 +13,6 @@
   <div class='row'>
     <div class='col-md-10 offset-md-1'>
 
-      <!--編集ボタン-->
-      <% if current_user.id == @group.user_ids %>
-        <div class='text-right'><%= link_to '編集', edit_group_path(@group), class:'btn btn-success btn-sm' %></div>
-      <% end %>
-
       <table class='table table-success mt-3'>
 
         <tr>
@@ -51,12 +46,21 @@
     </div>
   </div>
 
-  <div class='row'>
+  <!--コメント機能-->
+  <% if @group.users.include?(current_user) %>
+  <div class='row mt-5'>
     <div class='col-md-10 offset-md-1'>
-      投稿フォーム
 
-      投稿一覧
+      <div>
+        <%= render "public/group_posts/grouppost_list", group: @group %>
+      </div>
+
+      <div>
+        <%= render "public/group_posts/grouppost_form", group: @group, group_post: @group_post %>
+      </div>
+
     </div>
   </div>
+  <% end %>
 
 </div>

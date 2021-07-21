@@ -1,0 +1,32 @@
+<h3>コメント一覧</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ユーザー</th>
+      <th>コメント</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% group.group_posts.each do |group_post| %>
+    <tr>
+      <td><%= attachment_image_tag group_post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %></td>
+
+      <td>
+      <%= link_to users_show_path(group_post.user.name_id) do %>
+        <%= group_post.user.name %>
+      <% end %>
+      </td>
+
+      <td><%= group_post.contents %></td>
+
+      <td class="small"><%= group_post.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

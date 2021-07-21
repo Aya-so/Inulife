@@ -2,6 +2,9 @@ class Post < ApplicationRecord
 
   validates :caption, presence: true
 
+  # タグ付け
+  acts_as_taggable
+
   has_many :post_comments, dependent: :destroy
 
   belongs_to :user

@@ -52,7 +52,7 @@ group :development do
   gem 'letter_opener_web', '~> 1.0'
 
   gem 'bullet'
-  
+
   gem 'rubocop-airbnb', '~> 3'
 
 end
@@ -88,3 +88,5 @@ gem "dotenv-rails"
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'gon'
+
+gem 'acts-as-taggable-on', '~> 6.0'
