@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to my_page_path
+      redirect_to users_show_path(current_user.name_id)
       flash[:notice] = '投稿に成功しました。'
     else
       render ('public/users/show')
@@ -22,13 +22,18 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
+
+    # コメントの新規投稿
     @post_comment = PostComment.new
+
+    # タグ表示
+    @tags = @post.tag_counts_on(:tags)
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to my_page_path
+    redirect_to users_show_path(current_user.name_id)
     flash[:notice] = '投稿を削除しました。'
   end
 
@@ -39,7 +44,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :caption)
+    params.require(:post).permit(:image, :caption, :tag_list)
   end
 
 end

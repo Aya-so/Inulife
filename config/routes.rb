@@ -26,7 +26,9 @@ Rails.application.routes.draw do
       end
     end
     resources :posts, only: [:index, :show, :destroy]                   #投稿
-    resources :groups, only: [:index, :show, :edit, :update, :destroy]  #グループ
+    resources :groups, only: [:index, :show, :destroy] do               #グループ
+      resources :group_posts, only: [:destroy]                          #グループポスト
+    end
   end
 
 
@@ -63,6 +65,7 @@ Rails.application.routes.draw do
         post :confirm                                                   #グループ作成確認
       end
       resources :group_users, only: [:create, :destroy,]                #グループユーザー
+      resources :group_posts, only: [:create]                           #グループポスト
     end
 
   end

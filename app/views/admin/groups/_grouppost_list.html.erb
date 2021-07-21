@@ -1,0 +1,36 @@
+<h3>コメント一覧</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ユーザー</th>
+      <th>コメント</th>
+      <th></th>
+      <th>コメント削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% group.group_posts.each do |group_post| %>
+    <tr>
+      <td><%= attachment_image_tag group_post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %></td>
+
+      <td>
+      <%= link_to admin_user_path(group_post.user.name_id) do %>
+        <%= group_post.user.name %>
+      <% end %>
+      </td>
+
+      <td><%= group_post.contents %></td>
+
+      <td class="small"><%= group_post.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+
+      <td><%= link_to "削除", admin_group_group_post_path(group_post.group.id, group_post.id), method: :delete, remote: true, class:"btn btn-sm btn-danger" %></td>
+
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

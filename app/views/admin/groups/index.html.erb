@@ -3,4 +3,47 @@
 <!--検索フォーム-->
 <%= render "admin/searches/search_form" %>
 
-<h4>管理者側グループ一覧</h4>
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <h4>グループ一覧</h4>
+
+      <% @groups.each do |group| %>
+      <table class='table table-info mt-3'>
+
+        <tr>
+          <th class='text-center'>グループ名</th>
+          <td class='text-left'>
+            <%= link_to admin_group_path(group.id) do%>
+              <%= group.name %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>概要</th>
+          <td class='text-left'><%= group.introduction %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>メンバー</th>
+          <td class='text-left'><%= group.users.count %>人</td>
+        </tr>
+
+        <tr>
+          <th class='text-center'></th>
+          <td class='text-right'>
+            最終更新日：<%= group.updated_at.strftime('%Y/%m/%d') %><br>
+            作成日:<%= group.created_at.strftime('%Y/%m/%d') %>
+          </td>
+        </tr>
+
+      </table>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
