@@ -9,7 +9,7 @@ class Admin::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @group_post = GroupPost.where(group_id: @group.id).all
+    @group_posts = GroupPost.includes(:user, :group).where(group_id: @group.id)
   end
 
   def destroy

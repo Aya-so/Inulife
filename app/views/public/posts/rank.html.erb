@@ -1,21 +1,24 @@
-<div class='col-md-3 offset-md-1 m-3'>
+<div class='container'>
+  <div class='row'>
 
-  <%= @all_ranks.each do |post| %>
-  <div class='card shadow'>
+    <div class='col-md-3 offset-md-1 m-3'>
+      <% @all_ranks.each do |post| %>
 
-    <%= link_to post_path(post), class: 'no-underline', 'data-turbolinks': false do %>
-      <p class='text-center'><%= attachment_image_tag(post, :image, :fill, 250, 150, size:'250x150', fallback: 'no_image.jpg') %></p>
+        <div class='card shadow'>
+        <%= link_to post_path(post), class: 'no-underline', 'data-turbolinks': false do %>
+          <p class='text-center'><%= attachment_image_tag(post, :image, :fill, 250, 150, size:'250x150', fallback: 'no_image.jpg') %></p>
 
-      <div class='card-body'>
-        <p class='card-title text-right'><%= post.created_at.strftime('%Y/%m/%d') %></p>
-        <p class='card-title text-right'><i class="fas fa-heart"></i><%= post.favorites.count %>　コメント<%= post.post_comments.count %></p>
-        <p class='card-title'><%= post.caption %></p>
-        <p class='card-text'><%= attachment_image_tag post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %>@<%= post.user.name_id %></p>
+          <div class='card-body'>
+            <p class='card-title text-right'><%= post.created_at.strftime('%Y/%m/%d') %></p>
+            <p class='card-title text-right'><i class="fas fa-heart"></i><%= post.favorites.count %>　コメント<%= post.post_comments.count %></p>
+            <p class='card-title'><%= post.caption %></p>
+            <p class='card-text'><%= attachment_image_tag post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %>@<%= post.user.name_id %></p>
+          </div>
+        <% end %>
       </div>
 
-    <% end %>
+      <% end %>
+    </div>
 
   </div>
-  <% end %>
-
 </div>

@@ -27,7 +27,7 @@ class Public::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @group_post = GroupPost.where(group_id: @group.id).all
+    @group_posts = GroupPost.includes(:user).where(group_id: @group.id)
 
     # コメントの新規投稿
     @group_post = GroupPost.new

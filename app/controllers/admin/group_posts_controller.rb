@@ -4,7 +4,7 @@ class Admin::GroupPostsController < ApplicationController
     @group_post = GroupPost.find(params[:id])
     @group = @group_post.group
     @group_post.destroy
-      redirect_to admin_group_path(group.id)
+      redirect_to admin_group_path(@group.id)
       flash[:notice]="コメントを削除しました。"
   end
 

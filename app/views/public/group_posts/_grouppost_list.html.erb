@@ -12,7 +12,7 @@
 
   <tbody>
 
-    <% group.group_posts.each do |group_post| %>
+    <% group_posts.each do |group_post| %>
     <tr>
       <td><%= attachment_image_tag group_post.user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'50x50' %></td>
 
