@@ -1,0 +1,45 @@
+<!--会員側グループ新規作成確認-->
+
+<div class='container my-5'>
+
+  <%= form_with(model: @group, local: true, method: :post) do |f| %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <h5>内容の確認後、新規作成を行ってください。</h5>
+
+      <table class='table mt-3'>
+      <thead class='thead-light'>
+        <tr>
+          <th>イベント新規作成</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'>グループ名</th>
+          <td><%= @group.name %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>グループ概要</th>
+          <td><%= @group.introduction %></td>
+        </tr>
+
+        <tr>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :introduction %>
+          <td><%= f.submit '作成画面へ戻る', name: :back, class: 'btn btn-outline-danger btn-lg' %></td>
+          <td class='text-right'><%= f.submit '新規作成', class: 'btn btn-outline-primary btn-lg' %></td>
+        </tr>
+
+      </tbody>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

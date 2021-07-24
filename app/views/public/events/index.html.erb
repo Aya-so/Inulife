@@ -1,0 +1,45 @@
+<!--会員側イベント一覧-->
+
+<!--検索フォーム-->
+<%= render 'public/searches/search_form' %>
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-5 offset-md-1'>
+      <h3>イベント一覧</h3>
+    </div>
+  </div>
+
+  <div class='row mt-5'>
+
+    <% @events.each do |event| %>
+    <div class='col-md-4 offset-md-1'>
+
+      <div class='card shadow'>
+        <%= link_to event_path(event.id), class: 'no-underline', 'data-turbolinks': false do %>
+
+          <div class='card-body'>
+            <h4 class='card-title text-center'>開催日：<%= event.start %></h4>
+            <p class='text-center'><%= attachment_image_tag event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'250x250' %></p>
+            <p class='card-title'><%= event.title %></p>
+            <p class='card-title text-right'>
+              <% if event.event_status == 0 %>
+                <td>開催予定</td>
+              <% elsif event.event_status == 1 %>
+                <td class='text-danger'>開催中</td>
+              <% elsif event.event_status == 2 %>
+                <td class='text-black-50'>終了</td>
+              <% end %>
+            </p>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+    <% end %>
+
+  </div>
+
+</div>

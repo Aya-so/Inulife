@@ -1,0 +1,52 @@
+<!--会員側グループ新規作成-->
+
+<div class='container my-5'>
+
+  <%= form_with(model: @group, local: true, url: confirm_groups_path) do |f| %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <h5>お悩みを共有したり、日々の愛犬との生活を語り合ってコミュニティーを広げましょう！</h5>
+      <br>
+      <ul>
+        <li>個人または集団に向けた暴力をほのめかす脅迫は禁じられています。暴力を賛美することも禁止します。</li>
+        <li>特定の人物を標的とした嫌がらせに関与したり、他の人にそうするよう扇動したりすることを禁じます。</li>
+        <li>暴力的、または成人向けコンテンツを含む内容を投稿することはできません。</li>
+        <li>非合法な目的で、または違法な活動を促進させるための投稿を禁じます。</li>
+      </ul>
+
+      <p class='text-danger'>これらの内容を確認した場合、直ちに調査を行い削除、アカウントの停止をする場合があります。</p>
+
+      <table class='table mt-3'>
+      <thead class='thead-light'>
+        <tr>
+          <th>イベント新規作成</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'>グループ名</th>
+          <td><%= f.text_field :name, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>グループ概要</th>
+          <td><%= f.text_area :introduction, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+          <td class='text-right'><%= f.submit '確認画面へ進む', class: 'btn btn-outline-success btn-lg' %></td>
+        </tr>
+
+      </tbody>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

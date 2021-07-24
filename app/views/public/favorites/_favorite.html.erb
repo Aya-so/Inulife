@@ -1,0 +1,17 @@
+<!--会員側いいね部分テンプレート-->
+
+<% if post.favorited_by?(current_user) %>
+
+  <div class='LikesIcon'>
+    <%= link_to post_favorites_path(post), class:'like', method: :delete, remote: true do %>
+      <i class='fas fa-heart'></i>
+    <% end %>
+    <%= post.favorites.count %>
+  <% else %>
+    <%= link_to post_favorites_path(post), class:'like', method: :post, remote: true do%>
+      <i class='far fa-heart'></i>
+    <% end %>
+    <%= post.favorites.count %>
+  </div>
+
+<% end %>

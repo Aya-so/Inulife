@@ -1,0 +1,73 @@
+<!--管理者側ユーザー編集-->
+
+<div class='container my-5'>
+
+  <div class='row mb-3'>
+    <div class='col-md-3 offset-md-1'>
+
+      <h4>@<%= @user.name_id %> 編集</h4>
+
+    </div>
+  </div>
+
+  <%= form_with model: @user, url: admin_user_path, method: :patch, local: true do |f| %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <div class='text-center'>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %>
+      </div>
+
+    <table class='table mt-3'>
+      <thead class='thead-light'>
+        <tr>
+          <th>ユーザー情報</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'>メールアドレス</th>
+          <td><%= f.text_field :email, autocomplete: 'sample@sample', class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>ニックネーム</th>
+          <td><%= f.text_field :name, autocomplete: 'name', class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>ユーザーID</th>
+          <td><%= f.text_field :name_id, autocomplete: 'ID', class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>Introduction</th>
+          <td><%= f.text_area :introduction, autocomplete: '自己紹介', class: 'form-control' %></td>
+        </tr>
+
+        <!--ステータス-->
+        <tr>
+          <th class='text-center'>会員ステータス</th>
+          <td>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, '有効', value: :true %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, '退会', value: :false %>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class='text-right'>
+      <%= f.submit '変更を保存', class: 'btn btn-outline-primary' %>
+    </div>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

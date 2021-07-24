@@ -1,0 +1,68 @@
+<!--お問い合わせ内容確認-->
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <table class='table table-bordered'>
+        <tbody>
+          <tr>
+            <td class='text-center'>お名前</td>
+            <td><%= @contact.name %></td>
+          </tr>
+          <tr>
+            <td class='text-center'>メールアドレス</td>
+            <td><%= @contact.email %></td>
+          </tr>
+
+          <tr>
+            <td class='text-center'>タイトル
+              <% if @contact.subject == 0 %>
+                <td>会員登録について</td>
+              <% elsif @contact.subject == 1 %>
+                <td>ログインについて</td>
+              <% elsif @contact.subject == 2 %>
+                <td>会員情報の修正について</td>
+              <% elsif @contact.subject == 3 %>
+                <td>退会について</td>
+              <% elsif @contact.subject == 4 %>
+                <td>サイトのご利用について</td>
+              <% elsif @contact.subject == 5 %>
+                <td>写真の投稿について</td>
+              <% elsif @contact.subject == 6 %>
+                <td>イベントについて</td>
+              <% elsif @contact.subject == 7 %>
+                <td>グループについて</td>
+              <% elsif @contact.subject == 8 %>
+                <td>その他</td>
+              <% end %>
+          </tr>
+
+          <tr>
+            <td class='text-center'>メッセージ</td>
+            <td style='white-space: pre-wrap;'><%= @contact.message %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <%= form_for(@contact) do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :subject %>
+        <%= f.hidden_field :message %>
+        <div><%= f.submit '送信' %></div>
+      <% end %>
+      <%= form_for @contact, url: back_path do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :subject %>
+        <%= f.hidden_field :message %>
+        <div><%= f.submit '入力画面に戻る' %></div>
+      <% end %>
+
+
+    </div>
+  </div>
+
+</div>

@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Inulife</title>
+    <title>InuLife</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <script src='https://kit.fontawesome.com/abde5e35f4.js' crossorigin='anonymous'></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--ファビコン-->
+    <%= favicon_link_tag('favicon.ico') %>
+
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/notice' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
+
 </html>

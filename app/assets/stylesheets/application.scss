@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+@import 'bootstrap';
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+header,body,footer {
+  font-family: 'monospace',
+    'Helvetica Neue',
+    Arial,
+    'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans',
+    Meiryo,
+    sans-serif;
+}
+
+header {
+  background-color: #C6E5F3;
+}
+
+//welcome
+.welcome {
+  color: #6495ed;
+  text-align: center;
+  font-weight:  bold;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin-right: 20px;
+}
+
+//フラッシュメッセージ
+#notice {
+  background-color: #ffd700;
+  color: white;
+  text-align: center;
+  font-weight:  bold;
+}
+
+// ナビバー
+.nav-item {
+  font-weight: bold;
+}
+
+// *の色
+span {
+  color: red;
+}
+
+//topページ
+.main-visual {
+  width: 100%;
+  height: 800px;
+  background-image: image-url('top.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+
+.main-visual-content {
+  width: 40%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 105px;
+}
+
+.main-visual-text {
+  color: #fff;
+  text-align: center;
+}
+
+
+//新規登録ボタン
+.newbtn {
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 59px;   /* 余白       */
+  background    : #dc143c;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #dc143c;    /* 枠の指定 */
+}
+.newbtn:hover {
+  color         : #dc143c;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+//ログインボタン
+.lginbtn {
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 59px;   /* 余白       */
+  background    : #4169e1;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #4682b4;    /* 枠の指定 */
+}
+.lginbtn:hover {
+  color         : #ffffff;     /* 背景色     */
+  background    : #87cefa;     /* 文字色     */
+}
+
+
+footer {
+  background-color: #C6E5F3;
+  color: blue;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

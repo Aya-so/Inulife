@@ -1,0 +1,9 @@
+<!--会員側グループポスト部分テンプレート-->
+
+
+<%= form_with(model:[group, group_post]) do |f| %>
+
+  <p><%= f.text_area :contents, rows:'5', class: 'form-control' %></p>
+  <p><%= f.submit '送信' %></p>
+
+<% end %>

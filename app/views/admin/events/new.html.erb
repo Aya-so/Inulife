@@ -1,0 +1,64 @@
+<!--管理者側イベント新規追加-->
+
+<div class='container my-5'>
+
+  <%= form_with(model: @event, local: true, url: confirm_admin_events_path) do |f| %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <table class='table mt-3'>
+      <thead class='thead-light'>
+        <tr>
+          <th>イベント新規作成</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th class='text-center'><%= attachment_image_tag @event, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %></th>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>イベントタイトル</th>
+          <td><%= f.text_field :title, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>概要</th>
+          <td><%= f.text_area :introduction, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催地</th>
+          <td><%= f.text_field :place, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催期間</th>
+          <td>
+            開始日<%= f.date_field :start, class: 'form-control' %>
+            終了日<%= f.date_field :finish, class: 'form-control' %>
+          </td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>開催ステータス</th>
+          <td><%= f.select :event_status, [['開催予定', 0], ['開催中', 1], ['終了', 2]], class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+          <td class='text-right'><%= f.submit '確認画面へ進む', class: 'btn btn-outline-success btn-lg' %></td>
+        </tr>
+
+      </tbody>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

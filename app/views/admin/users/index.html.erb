@@ -1,0 +1,54 @@
+<!--管理者側ユーザー一覧-->
+
+<!--検索フォーム-->
+<%= render 'admin/searches/search_form' %>
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+    <table class='table table-hover'>
+      <thead class='thead-light'>
+        <tr>
+          <th class='text-center'>登録日</th>
+          <th class='text-center'>Name</th>
+          <th class='text-center'>ID</th>
+          <th class='text-center'>ステータス</th>
+          <th class='text-center'>詳細</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+
+          <td class='text-center'><%= user.created_at.strftime('%Y/%m/%d') %></td>
+
+          <td class='text-center'><%= user.name %></td>
+
+          <td class='text-center'>@<%= user.name_id %></td>
+
+          <!--ステータス-->
+          <% if user.is_active?%>
+            <td class='text-success text-center'>有効</td>
+      　　<% else %>
+      　　    <td class='text-secondary text-center'>退会</td>
+      　　<% end %>
+
+      　　<td class='text-center'><%= link_to '詳細', admin_user_path(user.id) %></td>
+
+      　</tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <!--ページネーション-->
+    <div class='pagination'>
+      <%= paginate @users %>
+    </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+<!--会員側グループ詳細-->
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-5 offset-md-1'>
+
+      <h4><%= @group.name %></h4>
+
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <table class='table table-success mt-3'>
+
+        <tr>
+          <th class='text-center'>概要</th>
+          <td><%= @group.introduction %></td>
+        </tr>
+
+        <tr>
+          <th class='text-center'>メンバー</th>
+          <td>
+            <%= @group.users.count %>人
+          </td>
+        </tr>
+      </table>
+
+
+      <p class='text-right'>最終更新日：<%= @group.updated_at.strftime('%Y/%m/%d') %></p>
+
+      <p class='text-right'>作成日：<%= @group.created_at.strftime('%Y/%m/%d') %></p>
+
+
+      <!--グループに参加ボタン-->
+      <p>
+        <% if @group.users.include?(current_user) %>
+          <%= link_to 'グループを退会', group_group_user_path(@group), method: :delete, class:'btn btn-danger btn-lg' %>
+        <% else %>
+          <%= link_to 'グループに参加', group_group_users_path(@group, user_id:current_user.id), method: :post, class:'btn btn-primary btn-lg' %>
+        <% end %>
+      </p>
+
+    </div>
+  </div>
+
+  <!--コメント機能-->
+  <% if @group.users.include?(current_user) %>
+  <div class='row mt-5'>
+    <div class='col-md-10 offset-md-1'>
+
+      <div>
+        <%= render 'public/group_posts/grouppost_list', group_posts: @group_posts %>
+      </div>
+
+      <div>
+        <%= render 'public/group_posts/grouppost_form', group: @group, group_post: @group_post %>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+
+</div>

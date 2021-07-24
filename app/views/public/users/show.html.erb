@@ -1,0 +1,77 @@
+<!--会員側マイページ-->
+
+<!--検索フォーム-->
+<%= render 'public/searches/search_form' %>
+
+<div class='container my-5'>
+
+  <!--ユーザー情報-->
+  <div class='row'>
+    <div class='col-md-4'>
+
+      <div class='text-center'>
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: 'no_image.jpg', size:'200x200' %>
+      </div>
+    </div>
+
+    <div class='col-md-7'>
+      <table class='table mt-3'>
+        <thead class='thead-light'>
+          <tr>
+            <th>ユーザー情報</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <th class='text-center'>Name</th>
+            <td><%= @user.name %></td>
+          </tr>
+
+          <tr>
+            <th class='text-center'>ユーザーID</th>
+            <td>@<%= @user.name_id %></td>
+          </tr>
+
+          <tr>
+            <th class='text-center'>Introduction</th>
+            <td><%= @user.introduction %></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <% unless current_user != @user %>
+      <div class='text-right'>
+        <%= link_to 'ユーザー情報を編集', edit_user_path(@user), class: 'btn btn-outline-primary btn-sm' %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <!--投稿フォーム-->
+  <div class='row'>
+  <% unless current_user != @user %>
+    <!--エラーメッセージ-->
+    <% if @user.errors.any? %>
+    <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <%= render 'public/posts/new', post: Post.new %>
+  </div>
+  <% end %>
+
+  <!--投稿一覧-->
+  <div class='row'>
+    <%= render 'public/posts/index', posts: @posts %>
+  </div>
+
+</div>

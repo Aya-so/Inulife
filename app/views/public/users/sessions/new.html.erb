@@ -1,0 +1,52 @@
+<!--会員ログインページ-->
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <p>初めてご利用の方は<strong><%= link_to 'こちら', new_user_registration_path %></strong>よりご登録ください。</p>
+  </div>
+
+  <div class='row mt-5'>
+    <div class='col-md-3 offset-md-1'>
+
+      <h4 class='bg-info text-white text-center'>ログイン</h4>
+
+    </div>
+  </div>
+
+
+  <div class='row'>
+    <div class='col-md-5 offset-md-1'>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render 'public/users/shared/error_messages', resource: resource %>
+
+      <table class='table table-borderless'>
+
+        <tr>
+        <div class='form-group'>
+          <th>メールアドレス</th>
+            <td><%= f.email_field :email, autofocus: true, placeholder: 'sample@sample.com', class: 'form-control' %></td>
+        </div>
+        </tr>
+
+        <tr>
+        <div class='form-group'>
+          <th>パスワード</th>
+            <td><%= f.password_field :password, autofocus: true, placeholder: 'パスワード', class: 'form-control' %></td>
+        </div>
+        </tr>
+
+        <tr>
+          <th></th>
+            <td><%= f.submit 'ログイン', class:'lginbtn' %></td>
+        </tr>
+
+      </table>
+
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

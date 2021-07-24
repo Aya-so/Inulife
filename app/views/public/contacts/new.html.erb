@@ -1,0 +1,40 @@
+<!--お問い合わせ新規-->
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+    <%= form_for(@contact, url: confirm_path) do |f| %>
+      <div class='form-group'>
+        <%= f.label :name, 'お名前*' %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :email, 'メールアドレス*' %>
+        <%= f.text_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :subject, 'タイトル*' %>
+        <%= f.select :subject,
+        [['会員登録について', 0], ['ログインについて', 1], ['会員情報の修正について', 2],
+        ['退会について', 3], ['サイトのご利用について', 4], ['写真の投稿について', 5],
+        ['イベントについて', 6], ['グループについて', 7], ['その他', 8]], class: 'form-control' %>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :message, 'メッセージ*' %>
+        <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+      </div>
+
+      <div>
+        <%= f.submit '入力内容確認' %>
+      </div>
+    <% end %>
+
+    </div>
+  </div>
+
+</div>

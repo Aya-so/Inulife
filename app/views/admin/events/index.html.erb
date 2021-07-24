@@ -1,0 +1,62 @@
+<!--管理者側イベント一覧-->
+
+<!--検索フォーム-->
+<%= render 'admin/searches/search_form' %>
+
+<div class='container my-5'>
+
+  <div class='row'>
+    <div class='col-md-11 offset-md-1'>
+
+        <!--イベント追加ボタン-->
+          <div class='text-right'>
+            <%= link_to new_admin_event_path(@event), class: 'btn-link' do %>
+              <i class='fas fa-plus-square fa-3x'></i>
+            <% end %>
+          </div>
+
+    <table class='table table-hover'>
+      <thead class='thead-light'>
+        <tr>
+          <th class='text-center'>登録日</th>
+          <th class='text-center'>イベント</th>
+          <th class='text-center'>開催期間</th>
+          <th class='text-center'>ステータス</th>
+          <th class='text-center'>詳細</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+        <tr>
+
+          <td class='text-center'><%= event.created_at.strftime('%Y/%m/%d') %></td>
+
+          <td class='text-center'><%= event.title %></td>
+
+          <td class='text-center'><%= event.start %> ～ <%= event.finish %></td>
+
+          <% if event.event_status == 0 %>
+            <td class='text-center'>開催予定</td>
+          <% elsif event.event_status == 1 %>
+            <td class='text-danger text-center'>開催中</td>
+          <% elsif event.event_status == 2 %>
+            <td class='text-black-50 text-center'>終了</td>
+          <% end %>
+
+      　　<td class='text-center'><%= link_to '詳細', admin_event_path(event.id) %></td>
+
+      　</tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <!--ページネーション-->
+    <div class='pagination'>
+      <%= paginate @events %>
+    </div>
+
+    </div>
+  </div>
+
+</div>
