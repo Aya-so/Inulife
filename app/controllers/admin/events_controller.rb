@@ -1,5 +1,5 @@
 class Admin::EventsController < ApplicationController
-  #管理者側イベントページ
+  #管理者側イベント
 
   before_action :authenticate_admin!
 

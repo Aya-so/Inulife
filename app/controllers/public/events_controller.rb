@@ -1,5 +1,5 @@
 class Public::EventsController < ApplicationController
-  #会員側イベントページ
+  #会員側イベント
 
   before_action :authenticate_user!
 

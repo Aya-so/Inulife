@@ -1,4 +1,5 @@
 class Public::GroupPostsController < ApplicationController
+  #会員側グループポスト
 
   before_action :authenticate_user!
 
@@ -9,9 +10,9 @@ class Public::GroupPostsController < ApplicationController
 
     if @group_post.save
       redirect_to group_path(@group.id)
-      flash[:notice]="コメントを記載しました。"
+      flash[:notice]='コメントを記載しました。'
     else
-      render "groups/show"
+      render 'groups/show'
     end
   end
 

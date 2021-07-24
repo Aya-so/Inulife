@@ -1,6 +1,8 @@
+<!--管理者側コメントリスト部分テンプレート-->
+
 <h3>コメント一覧</h3>
 
-<table class="table">
+<table class='table'>
   <thead>
     <tr>
       <th></th>
@@ -25,9 +27,9 @@
 
       <td><%= post_comment.comment %></td>
 
-      <td><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class:"btn btn-sm btn-danger" %></td>
+      <td><%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class:'btn btn-sm btn-danger' %></td>
 
-      <td class="small"><%= post_comment.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+      <td class='small'><%= post_comment.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
     </tr>
     <% end %>
 

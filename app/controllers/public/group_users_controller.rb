@@ -1,4 +1,7 @@
 class Public::GroupUsersController < ApplicationController
+  #会員側グループユーザー
+
+  before_action :authenticate_user!
 
   def create
     @group = Group.find(params[:group_id])

@@ -1,5 +1,5 @@
 class Public::GroupsController < ApplicationController
-  #会員側グループページ
+  #会員側グループ
 
   before_action :authenticate_user!
 

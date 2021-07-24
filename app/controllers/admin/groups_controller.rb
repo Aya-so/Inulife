@@ -1,5 +1,5 @@
 class Admin::GroupsController < ApplicationController
-  #管理者側グループページ
+  #管理者側グループ
 
   before_action :authenticate_admin!
 

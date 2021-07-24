@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  #会員側投稿ページ
+  #会員側投稿
 
   before_action :authenticate_user!, only: [:show]
 

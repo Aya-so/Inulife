@@ -20,7 +20,7 @@
       登録タグ：
       <% if @tags.present? %>
         <% @tags.each do |tag| %>
-          <%= "#{tag.name}(#{tag.taggings_count})" %>
+          <%= '#{tag.name}(#{tag.taggings_count})' %>
         <% end %>
       <% end %>
     </div>
@@ -40,13 +40,13 @@
 
     <!--いいね-->
     <div class='col-md-6 offset-md-1 text-right'>
-      <div id="favorite_<%= @post.id %>"><%= render "public/favorites/favorite", post: @post %></div>
+      <div id='favorite_<%= @post.id %>'><%= render 'public/favorites/favorite', post: @post %></div>
     </div>
 
     <!--削除ボタン-->
     <div class='col-md-6 offset-md-1 text-right'>
       <% unless current_user != @user %>
-        <%= link_to "削除", post_path(@post), method: :delete, class:'btn btn-danger', 'data-confirm' => '本当に削除しますか？' %>
+        <%= link_to '削除', post_path(@post), method: :delete, class:'btn btn-danger', 'data-confirm' => '本当に削除しますか？' %>
       <% end %>
     </div>
 
@@ -57,11 +57,11 @@
     <div class='col-md-8 offset-md-3'>
 
       <div id='comment_list'>
-        <%= render "public/post_comments/comment_list", post: @post %>
+        <%= render 'public/post_comments/comment_list', post: @post %>
       </div>
 
       <div>
-        <%= render "public/post_comments/comment_form", post: @post, post_comment: @post_comment %>
+        <%= render 'public/post_comments/comment_form', post: @post, post_comment: @post_comment %>
       </div>
 
     </div>

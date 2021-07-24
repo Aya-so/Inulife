@@ -1,4 +1,5 @@
 class Admin::SearchesController < ApplicationController
+  #管理者側検索
 
   before_action :authenticate_admin!
 
@@ -7,9 +8,9 @@ class Admin::SearchesController < ApplicationController
     @how = params[:search][:how]
     @value = params[:search][:value]
 
-    if @model == "user"
+    if @model == 'user'
       @users = User.search(@value, @model, @how)
-    elsif @model == "event"
+    elsif @model == 'event'
       @events = Event.search(@value, @model, @how)
     else
       @groups = Group.search(@value, @model, @how)

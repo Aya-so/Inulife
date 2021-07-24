@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # letter_opener_webのルート
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
 
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   #管理者側ルーティング
   namespace :admin do
-    get "search" => "searches#search"                                   #検索
+    get 'search' => 'searches#search'                                   #検索
     resources :users, only: [:index, :show, :edit, :update]             #ユーザー情報
     resources :events do                                                #イベント
       collection do
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       registrations: 'public/users/registrations',
     }
 
-    get "search" => "searches#search"                                   #検索
+    get 'search' => 'searches#search'                                   #検索
 
     get '/users/:name_id' => 'users#show', as: 'users_show'             #ユーザーページ
     get '/users/edit/:name_id' => 'users#edit', as: 'edit_user'         #ユーザー編集ページ
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
     resources :events, only: [:index, :show]                            #イベント
 
-    get '/posts/rank' => "posts#rank", as: 'posts_rank'                 #投稿ランキング
+    get '/posts/rank' => 'posts#rank', as: 'posts_rank'                 #投稿ランキング
     resources :posts, only: [:index, :create, :show, :destroy] do       #投稿
       resources :post_comments, only: [:create, :destroy]               #投稿宛コメント
       resource :favorites, only: [:create, :destroy]                    #いいね

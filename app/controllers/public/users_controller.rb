@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  #会員側会員ページ
+  #会員側会員
 
   before_action :authenticate_user!
 
