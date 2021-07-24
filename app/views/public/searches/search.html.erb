@@ -1,14 +1,14 @@
 <!--会員側検索-->
 
 <!--検索フォーム-->
-<%= render "public/searches/search_form" %>
+<%= render 'public/searches/search_form' %>
 
-<div class="container my-5">
-  <div class="row">
-    <table class="table">
+<div class='container my-5'>
+  <div class='row'>
+    <table class='table'>
 
       <!--ユーザー検索-->
-      <% if @model == "user" %>
+      <% if @model == 'user' %>
         <h2><%= @value %> の検索結果</h2>
         <thead>
           <tr>
@@ -45,7 +45,7 @@
         <% end %>
 
       <!--イベント検索-->
-      <% elsif @model == "event" %>
+      <% elsif @model == 'event' %>
         <h2><%= @value %> の検索結果</h2>
         <thead>
           <tr>
@@ -88,7 +88,7 @@
         <% end %>
 
       <!--グループ検索-->
-      <% elsif @model == "group" %>
+      <% elsif @model == 'group' %>
         <h2><%= @value %> の検索結果</h2>
         <thead>
           <tr>

@@ -1,3 +1,5 @@
+<!--お問い合わせ内容確認-->
+
 <div class='container my-5'>
 
   <div class='row'>
@@ -6,16 +8,16 @@
       <table class='table table-bordered'>
         <tbody>
           <tr>
-            <td class="text-center">お名前</td>
+            <td class='text-center'>お名前</td>
             <td><%= @contact.name %></td>
           </tr>
           <tr>
-            <td class="text-center">メールアドレス</td>
+            <td class='text-center'>メールアドレス</td>
             <td><%= @contact.email %></td>
           </tr>
 
           <tr>
-            <td class="text-center">タイトル
+            <td class='text-center'>タイトル
               <% if @contact.subject == 0 %>
                 <td>会員登録について</td>
               <% elsif @contact.subject == 1 %>
@@ -38,8 +40,8 @@
           </tr>
 
           <tr>
-            <td class="text-center">メッセージ</td>
-            <td style="white-space: pre-wrap;"><%= @contact.message %></td>
+            <td class='text-center'>メッセージ</td>
+            <td style='white-space: pre-wrap;'><%= @contact.message %></td>
           </tr>
         </tbody>
       </table>

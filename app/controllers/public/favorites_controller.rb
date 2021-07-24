@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  #いいね
 
   before_action :authenticate_user!
 

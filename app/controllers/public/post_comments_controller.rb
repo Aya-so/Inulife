@@ -1,4 +1,7 @@
 class Public::PostCommentsController < ApplicationController
+  #会員側投稿コメント
+
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
@@ -6,9 +9,9 @@ class Public::PostCommentsController < ApplicationController
     @post_comment.post_id = @post.id
 
     if @post_comment.save
-      flash[:notice]="コメントを記載しました。"
+      flash[:notice]='コメントを記載しました。'
     else
-      render "posts/show"
+      render 'posts/show'
     end
   end
 
@@ -16,7 +19,7 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = PostComment.find(params[:id])
     @post = @post_comment.post
     @post_comment.destroy
-      flash[:notice]="コメントを削除しました。"
+      flash[:notice]='コメントを削除しました。'
   end
 
   private

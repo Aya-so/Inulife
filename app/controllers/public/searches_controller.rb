@@ -1,4 +1,5 @@
 class Public::SearchesController < ApplicationController
+  #会員側検索
 
   before_action :authenticate_user!
 
@@ -7,9 +8,9 @@ class Public::SearchesController < ApplicationController
     @how = params[:search][:how]
     @value = params[:search][:value]
 
-    if @model == "user"
+    if @model == 'user'
       @users = User.search(@value, @model, @how)
-    elsif @model == "event"
+    elsif @model == 'event'
       @events = Event.search(@value, @model, @how)
     else
       @groups = Group.search(@value, @model, @how)

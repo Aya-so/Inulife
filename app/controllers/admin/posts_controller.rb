@@ -1,5 +1,5 @@
 class Admin::PostsController < ApplicationController
-  #管理者側投稿ページ
+  #管理者側投稿
 
   before_action :authenticate_admin!
 

@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  # お問い合わせ
 
   #お問い合わせ新規
   def new

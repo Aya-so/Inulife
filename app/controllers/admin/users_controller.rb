@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  #管理者側会員ページ
+  #管理者側会員
 
   before_action :authenticate_admin!
 
