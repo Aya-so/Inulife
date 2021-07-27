@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true
-  validates :name_id, uniqueness: true, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
+  validates :name_id, presence: true, uniqueness: true
+  #, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
 
   attachment :profile_image
 
