@@ -1,6 +1,6 @@
 class PostComment < ApplicationRecord
 
-  validates :comment
+  validates :comment, presence: true
 
   belongs_to :user
   belongs_to :post
