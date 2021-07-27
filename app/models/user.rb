@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true
-  validates :name_id, presence: true, uniqueness: true
-  #, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
+  validates :name_id, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
 
   attachment :profile_image
 
