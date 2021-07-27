@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, uniqueness: true
-  validates :introduction
+  validates :introduction, presence: true
   validates :name_id, uniqueness: true, format: { with: /\A[a-zA-Z\d]+\z/ }, length: { minimum: 2, maximum: 15 }
 
   attachment :profile_image
