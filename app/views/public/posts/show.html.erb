@@ -20,7 +20,7 @@
       登録タグ：
       <% if @tags.present? %>
         <% @tags.each do |tag| %>
-          <%= '#{tag.name}(#{tag.taggings_count})' %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", posts_path(tag: tag.name) %>
         <% end %>
       <% end %>
     </div>
