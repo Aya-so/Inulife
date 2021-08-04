@@ -24,6 +24,12 @@
         <% end %>
       <% end %>
     </div>
+
+    <!--APIタグ-->
+    <% @post.tags.each do |tag| %>
+      <span class="label"><%= tag.name %></span>
+    <% end %>
+
   </div>
 
   <div class='row mt-3'>
