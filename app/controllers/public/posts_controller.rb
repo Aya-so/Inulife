@@ -17,6 +17,14 @@ class Public::PostsController < ApplicationController
     else
       render ('public/users/show')
     end
+
+    #vision API
+    tags = Vision.get_image_data(@post.image)
+    tags.each do |tag|
+      @post.tags.create(name: tag)
+    end
+
+
   end
 
   def show
