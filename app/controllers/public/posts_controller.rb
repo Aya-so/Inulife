@@ -19,10 +19,13 @@ class Public::PostsController < ApplicationController
     end
 
     #vision API
-    tags = Vision.get_image_data(@post.image)
-    tags.each do |tag|
-      @post.tags.create(name: tag)
-    end
+    # tags = Vision.get_image_data(@post.image)
+    # tags.each do |tag|
+    #   @post.tags.create(name: tag)
+    # end
+
+    #Natural Language API
+    @post.score = Language.get_data(post_params[:caption])
 
 
   end

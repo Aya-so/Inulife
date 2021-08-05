@@ -25,10 +25,10 @@
       <% end %>
     </div>
 
-    <!--APIタグ-->
-    <% @post.tags.each do |tag| %>
-      <span class="label"><%= tag.name %></span>
-    <% end %>
+    <!--Verson API-->
+    <!-- % @post.tags.each do |tag| %>-->
+    <!--  <span class="label"> %= tag.name %></span>-->
+    <!-- % end %>-->
 
   </div>
 
@@ -39,9 +39,12 @@
       <%= attachment_image_tag(@post, :image, :fill, 500, 450, size:'500x450', fallback: 'no_image.jpg' ) %>
     </div>
 
-    <!--投稿-->
     <div class='col-md-4 offset-md-2'>
-      <%= @post.caption %>
+      <!--Natural Language API-->
+      <p class="sentiment-score">本文の感情分析スコア[<%= @post.score %>]</p>
+
+      <!--投稿-->
+      <p><%= @post.caption %></p>
     </div>
 
     <!--いいね-->
