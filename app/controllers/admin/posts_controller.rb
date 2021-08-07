@@ -24,3 +24,4 @@ class Admin::PostsController < ApplicationController
   end
 
 end
+w
