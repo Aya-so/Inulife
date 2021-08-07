@@ -91,6 +91,8 @@ gem 'gon'
 gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+gem 'mysql2'
+
+#group :production do
+#  gem 'mysql2'
+#end
