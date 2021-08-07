@@ -5,7 +5,6 @@ require 'net/https'
 module Language
   class << self
     def get_data(text)
-      logger.debug("#{ENV[GOOGLE_API_KEY}")
       # APIのURL作成
       api_url = "https://language.googleapis.com/v1beta1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
       # APIリクエスト用のJSONパラメータ
